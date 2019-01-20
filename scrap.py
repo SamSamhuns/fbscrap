@@ -63,7 +63,7 @@ def parse():
         output_file = "active_friend_list.txt"
         with open(output_file, 'a') as fw:
             for friend in current_active_set:
-                fw.write(friend+','+str(current_time)+'\n'))
+                fw.write(friend+','+str(current_time)+'\n')
 
 def main():
     login()
