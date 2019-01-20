@@ -2,8 +2,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from time import sleep
 
-USER = #USEREMAIL
-PASS = #PASSWORD
+USER = "user@email.com" #USEREMAIL
+PASS = "password"       #PASSWORD
 
 
 def login():
