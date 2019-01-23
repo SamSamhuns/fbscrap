@@ -1,8 +1,9 @@
-import matplotlib.pyplot as plt
-from datetime import datetime
+#!/usr/bin/env python3
+import os
+import errno
 from dateutil import tz
-import seaborn as sns
-# sns.set_style("whitegrid")
+from datetime import datetime
+import matplotlib.pyplot as plt
 
 time_list = []
 full_set = set()
@@ -47,8 +48,39 @@ def utc_convert(utc_time, time_zone):
     return new_tzone
 
 
+def user_barplot(fname, x, y, title_name="Facebook activity status for"):
+
+    fig = plt.gcf()
+    plt.bar(x, y)
+    fig.set_size_inches(18.5, 10.5, forward=True)
+    plt.xticks(rotation=75)
+    plt.title((title_name + ' ' + fname))
+    plt.xlabel("Time")
+    plt.ylabel("Active status")
+    plt.savefig((fname+"fb activity"))
+    plt.show()
+
+
+def multi_user_barplot(flist):
+    x = []
+    y = []
+    for active in flist:
+        x.append(active[0])
+        y.append(len(active[1]))
+    user_barplot(
+        'In Total', x, y, title_name="Active number of friends at given time")
+
 def main():
+    directory = "Saved_figures"
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
     option = 0
+    directory_path = "./"+directory
+    os.chdir(directory_path)
+
     while True:
         print("1) Enter 1 to get the set of all friends with recorded status")
         print("2) Enter 2 to graph number of active friends \
@@ -62,7 +94,7 @@ def main():
             for name in full_set:
                 print(name)
         elif option == '2':
-            pass
+            multi_user_barplot(time_list)
         elif option == '3':
             fname = 0
             while fname not in full_set:
@@ -79,14 +111,14 @@ def main():
                         y_status.append(1)
                     else:
                         y_status.append(0)
-            plt.bar(x_time, y_status)
-            plt.show()
+
+            user_barplot(fname, x_time, y_status)
 
         elif option == '4' or option.lower() == 'q':
             print("Quitting program")
             break
         else:
-            print("Invalid option chosen.\n Options are 1, 2, 3 and 4.")
+            print("Invalid option.\n Options are 1, 2, 3 and 4.")
 
 
 if __name__ == "__main__":
