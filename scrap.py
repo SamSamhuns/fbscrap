@@ -1,9 +1,41 @@
+#!/usr/bin/env python3
+import sys
 import time
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+if len(sys.argv) != 3:
+    print("Usage ./scrap.py <headless_state_1_0> <interval_in_secs>")
+    sys.exit(1)
 
 USER = "user@email.com" #USEREMAIL
 PASS = "password"       #PASSWORD
-driver = webdriver.Chrome(executable_path='./chromedriver')
+HEADLESS = int(sys.argv[1])
+INTERVAL = int(sys.argv[2])
+
+CHROMEDRIVER_PATH = './chromedriver'
+WINDOW_SIZE = "1920,1080"
+
+# Make sure the paths for the chromedriver and chrome is correct
+if sys.platform == "linux" or sys.platform == "linux2":
+    # linux
+    CHROME_PATH = '/usr/bin/google-chrome'
+elif sys.platform == "darwin":
+    # OSX
+    CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+elif sys.platform == "win32":
+    # Windows
+    CHROME_PATH = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+
+chrome_options = Options()
+if HEADLESS:
+    chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
+chrome_options.binary_location = CHROME_PATH
+driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
+                          options=chrome_options
+                         )
 
 def login():
     driver.get('https://mbasic.facebook.com/')
@@ -43,7 +75,7 @@ def parse():
     # Set the reload to a constant loop
     while True:
         goto_chat_page()
-        time.sleep(5.0)
+        time.sleep(INTERVAL)
 
         status_containers = driver.find_elements_by_xpath(
             "//table[@role='presentation']")
