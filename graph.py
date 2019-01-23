@@ -70,6 +70,7 @@ def multi_user_barplot(flist):
     user_barplot(
         'In Total', x, y, title_name="Active number of friends at given time")
 
+
 def main():
     directory = "Saved_figures"
     try:

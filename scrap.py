@@ -8,8 +8,8 @@ if len(sys.argv) != 3:
     print("Usage ./scrap.py <headless_state_1_0> <interval_in_secs>")
     sys.exit(1)
 
-USER = "user@email.com" #USEREMAIL
-PASS = "password"       #PASSWORD
+USER = "user@email.com"  # USEREMAIL
+PASS = "password"       # PASSWORD
 HEADLESS = int(sys.argv[1])
 INTERVAL = int(sys.argv[2])
 
@@ -22,10 +22,10 @@ if sys.platform == "linux" or sys.platform == "linux2":
     CHROME_PATH = '/usr/bin/google-chrome'
 elif sys.platform == "darwin":
     # OSX
-    CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    CHROME_PATH = ('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
 elif sys.platform == "win32":
     # Windows
-    CHROME_PATH = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+    CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 
 chrome_options = Options()
@@ -34,8 +34,8 @@ if HEADLESS:
 chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
 chrome_options.binary_location = CHROME_PATH
 driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
-                          options=chrome_options
-                         )
+                          options=chrome_options)
+
 
 def login():
     driver.get('https://mbasic.facebook.com/')
@@ -96,6 +96,7 @@ def parse():
         with open(output_file, 'a') as fw:
             for friend in current_active_set:
                 fw.write(friend+','+str(current_time)+'\n')
+
 
 def main():
     login()
