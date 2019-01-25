@@ -28,7 +28,7 @@ $ pip3 install -r requirements.txt
 ## Usage
 Set the `USER` (user email) and `PASS`(password) variables.
 
-* To use the scraper make sure the paths for the chrome binary and chromedirver is correct for all OS. The scraped output file is named as 'active_friend_list.txt'.
+*   To use the scraper make sure the paths for the chrome binary and chromedirver is correct for all OS. The scraped output file is named as 'active_friend_list.txt'.
 
 `$ ./scrap.py <HEADLESS_flag_1_or_0> <INTERVAL_in_sec>`
 
@@ -38,7 +38,7 @@ Examples:
 
 `$ ./scrap.py 0 300` would open a chrome tab with visuals and probe active friend list every five minutes.
  
-* To run the grapher. (In program options to graph will be available)
+*    To run the grapher. (In program options to graph will be available)
 
 `$ ./graph.py`
 
