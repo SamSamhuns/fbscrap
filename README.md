@@ -1,4 +1,7 @@
 # fbscrap
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2ddcd031f54240ebbc0497ad8bdcb662)](https://app.codacy.com/app/samhunsadamant/fbscrap?utm_source=github.com&utm_medium=referral&utm_content=SamSamhuns/fbscrap&utm_campaign=Badge_Grade_Dashboard)
+
 This project depicts the privacy concerns that exist with social media like facebook and how easy it is monitor your facebook friends. The scripts automatically scrap the online/offline status of your friends. This highlights some of the rising concerns with what can be derived from social media activity such as the wake-sleep cycle as in this case and much more private information.
 
 **Warning**: This project meant to purely show a segment of  social media information that is freely available to be scraped by bots online and should not be used for any malicious purposes. It is a purely educational experiment.
