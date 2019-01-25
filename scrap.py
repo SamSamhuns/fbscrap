@@ -83,13 +83,17 @@ def parse():
         current_time = time.time()
         current_active_set = set()
         # making sure element not found erros are ignored
-        try:
-            for item in status_containers:
-                name = (item.find_element_by_xpath(".//tbody/tr/td[1]/a")).text
-                if name != '' and name != "Active Status":
-                    current_active_set.add(name)
-        except:
-            pass
+        # any errors will be logged in the error_log file
+        with open('error_log', 'a') as elog:
+            try:
+                for item in status_containers:
+                    name = (item.find_element_by_xpath(".//tbody/tr/td[1]/a")).text
+                    if name != '' and name != "Active Status":
+                        current_active_set.add(name)
+            except Exception as ex:
+                template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+                message = template.format(type(ex).__name__, ex.args)
+                elog.write((message+'\n'))
 
         # Writing to the active_friend_list file
         output_file = "active_friend_list.txt"
