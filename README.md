@@ -7,7 +7,7 @@
 
 This project depicts the privacy concerns that exist with social media like facebook and how easy it is monitor your facebook friends. The scripts automatically scrap the online/offline status of your friends. This highlights some of the rising concerns with what can be derived from social media activity such as the wake-sleep cycle as in this case and much more private information.
 
-**Warning**: This project meant to purely show a segment of  social media information that is freely available to be scraped by bots online and should not be used for any malicious purposes. It is a purely educational experiment.
+**Warning**: This project meant to purely show a segment of  social media information that is freely available to be scraped by bots online and should not be used for any malicious purposes. It is a purely educational experiment. The format of facebook pages might also be changing constantly.
 
 This is an alternative approach to using the facebook Graph API. This approach uses Selenium in python. The script opens a new Chromium browser window and mimics the manual process of a user logging into facebook. 
 
