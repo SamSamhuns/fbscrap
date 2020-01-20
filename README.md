@@ -38,7 +38,7 @@ Examples:
 
 `$ ./scrap.py 0 300` would open a chrome tab with visuals and probe active friend list every five minutes.
  
-*    To run the grapher. (In program options to graph will be available)
+*   To run the grapher. (In program options to graph will be available)
 
 `$ ./graph.py`
 
