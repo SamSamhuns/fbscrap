@@ -4,7 +4,7 @@
 # configure updates globally
 # default: all
 # allowed: all, insecure, False
-update: all
+update: False
 
 # configure dependency pinning globally
 # default: True
